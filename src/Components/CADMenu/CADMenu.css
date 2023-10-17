@@ -1,0 +1,95 @@
+@import 'index.css';
+@import 'animations.css';
+@import 'fonts/font-imports-wrapper.css';
+
+/* Mobile */
+@media all and (max-width: 767px) {
+}
+
+/* Desktop */
+@media all and (min-width: 768px){
+    #CADMenu {
+        transform-origin: left;
+        margin-top: 25px;
+        transition: transform 0.5s;
+    }
+    
+    #CADMenu.shrink {
+        position: fixed;
+        animation: shrink 0.5s ease-in-out forwards;
+    }
+    
+    #CADMenu.shrinked {
+        position: fixed;
+        transform: scale(0.4);
+    }
+
+    #CADMenu.miniShrink {
+        position: fixed;
+        animation: miniShrink 0.5s ease-in-out forwards;
+    }
+
+    #CADMenu.miniShrinked {
+        position: fixed;
+        transform: scale(0.3);
+    }
+
+    #CADMenu.reverseMiniShrink {
+        position: fixed;
+        animation: reverseMiniShrink 0.5s ease-in-out forwards;
+    }
+
+    #CADMenu.reverseMiniShrinked {
+        position: fixed;
+        transform: scale(0.4);
+    }
+
+    #CADMenu.AmplificaShrink {
+        position: fixed;
+        animation: amplificaShrink 0.5s ease-in-out forwards;
+    }
+
+    #CADMenu.AmplificaShrinked {
+        position: fixed;
+        transform: scale(0.3);
+    }
+
+    #CADMenu a {
+        position: relative;
+        font-family: "Figtree";
+        letter-spacing: -9.6px;
+        text-decoration: none;
+        color: var(--color-Poonto);
+        cursor: pointer;
+        transition: font-variation-settings 0.5s;
+        transition-timing-function: ease-in-out;
+        font-variation-settings: 'wght' 900;
+    }
+    
+    #CADMenu a:hover {
+        font-variation-settings: 'wght' 100;
+    }
+
+    #CADMenu:not(.none) a {
+        font-variation-settings: 'wght' 100;
+    }
+
+    #CADMenu:not(.none) a.disabled {
+        pointer-events: none;
+        color: black;
+    }
+}
+
+@media all and (max-width: 1920px) {
+    #CADMenu a {
+        font-size: 12.5vw;
+        line-height: 12vw;
+    }
+}
+
+@media all and (min-width: 1921px) {
+    #CADMenu a {
+        font-size: 240px;
+        line-height: 225px;
+    }
+}

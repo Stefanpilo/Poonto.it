@@ -1,0 +1,101 @@
+#header {
+    position: fixed;
+    top: 0;
+    min-height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+#logo {
+    height: 41px;
+    cursor: pointer;
+}
+
+#diventa-button {
+    margin: auto;
+}
+
+#burger-menu-icon {
+    width: 60px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#menu-dropdown-wrapper {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    background-color: #d5d2ce;
+    z-index: 1;
+    transition: height 0.3s ease-in-out;
+}
+
+#menu-dropdown-wrapper.opened {
+    height: 100vh;
+}
+
+#menu-dropdown-wrapper * {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out 0.3s;
+}
+
+#menu-dropdown-wrapper.opened * {
+    visibility: visible;
+    opacity: 1;
+}
+
+#menu-pages-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu-dropdown-wrapper a {
+    font: normal italic bold 70px/20px Averta;
+    letter-spacing: -2.1px;
+    padding: 39px 0;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#menu-dropdown-wrapper a::after {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    margin-top: -50px;
+    text-align: center;
+    font: normal normal bold 10px/204px Averta;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    color: #9B928D;
+    pointer-events: none;
+}
+
+#comunica-menu::after {
+    content: 'CHI SIAMO';
+
+}
+
+#amplifica-menu::after {
+    content: 'PROGETTI';
+}
+
+#diventa-menu::after {
+    content: 'CONTATTI';
+}
+
+#newoos-menu::after {
+    content: 'MAGAZINE';
+}
+
+#privacy-policy {
+    color: #534C49;
+    font-size: 30px !important;
+    letter-spacing: -0.3px !important;
+}

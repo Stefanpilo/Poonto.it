@@ -1,0 +1,37 @@
+#greyBackground_section {
+    height: 1080px;
+    width: 120vw;
+    margin-left: -20vw;
+    margin-top: -200px;
+    background-color: #D5D2CE;
+}
+
+#black_section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 200px 0 300px 0;
+    background-color: black;
+    text-align: center;
+}
+
+#black_section .h2 {
+    display: inline-block;
+    padding: 0 7%;
+    font-family: 'Averta';
+    font-size: 80px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 86px;
+    letter-spacing: -4px;
+    color: #F2F2F2;
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}

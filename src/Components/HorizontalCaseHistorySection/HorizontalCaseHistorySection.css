@@ -1,0 +1,18 @@
+#horizontalSectionWrapper {
+    margin-left: -8%;
+    padding-left: 8%;
+}
+
+#horizontalSection {
+    display: flex;
+    margin-top: 50px;
+    animation-timing-function: ease-in-out;
+}
+
+.HPCaseHistory_column {
+    min-width: 682px;
+    min-height: 375px;
+    background-color: red;
+    padding: 2%;
+    border: 3px solid black;
+}

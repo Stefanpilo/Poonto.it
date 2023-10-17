@@ -1,0 +1,31 @@
+@keyframes shrink {
+    from {}
+    to {
+        transform: scale(0.4);
+    }
+}
+
+@keyframes miniShrink {
+    from {
+        transform: scale(0.4);
+    }
+    to {
+        transform: scale(0.3);
+    }
+}
+
+@keyframes reverseMiniShrink {
+    from {
+        transform: scale(0.3);
+    }
+    to {
+        transform: scale(0.4);
+    }
+}
+
+@keyframes amplificaShrink {
+    from {}
+    to {
+        transform: scale(0.3);
+    }
+}
