@@ -56,15 +56,16 @@
     align-items: center;
 }
 
-#menu-dropdown-wrapper a {
+#menu-dropdown-wrapper span {
     font: normal italic bold 70px/20px Averta;
     letter-spacing: -2.1px;
     padding: 39px 0;
     margin-top: 15px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-#menu-dropdown-wrapper a::after {
+#menu-dropdown-wrapper span::after {
     width: 100%;
     position: absolute;
     left: 0;
