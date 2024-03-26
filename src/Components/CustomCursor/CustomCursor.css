@@ -1,5 +1,11 @@
 @import 'animations.css';
 
-#customCursor.scopri {
-
+#customCursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 999;
+    transition: transform 0.3s;
+    display: none;
 }

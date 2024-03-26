@@ -4,14 +4,14 @@ import 'index.css';
 import CADMenu from 'Components/CADMenu';
 import HorizontalCaseHistorySection from 'Components/HorizontalCaseHistorySection';
 
-export default function Home() {
+export default function Home({ customCursorFunctions }) {
 
   return (
     <>
       <div className="boxed">
         <div id='horizontalSectionPin'>
           <CADMenu animation={'none'} />
-          <HorizontalCaseHistorySection />
+          <HorizontalCaseHistorySection customCursorFunctions={customCursorFunctions}/>
           <div id='greyBackground_section'></div>
         </div>
         <div id='black_section'>

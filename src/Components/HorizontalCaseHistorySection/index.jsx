@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './HorizontalCaseHistorySection.css'
@@ -6,9 +6,13 @@ import './HorizontalCaseHistorySection.css'
 import cosenzaBackground_img from 'images/Cosenza background img.jpg';
 import edenBackground_img from 'images/Eden background img.jpg';
 import titoffBacground_img from 'images/Titoff case history background img.jpg';
+import CustomCursor from 'Components/CustomCursor';
 
-export default function HorizontalCaseHistorySection() {
+export default function HorizontalCaseHistorySection({ customCursorFunctions }) {
 
+    useEffect( () => {
+        console.log(customCursorFunctions);
+    }, [customCursorFunctions])
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect( () => {
@@ -41,12 +45,12 @@ export default function HorizontalCaseHistorySection() {
             scrub: 1,
             invalidateOnRefresh: true
         });
-    });
+    }, []);
 
     return (
         <div id='horizontalSectionWrapper'>
             <div id='horizontalSection'>
-            <div className='HPCaseHistory_column'>
+            <div className='HPCaseHistory_column' >
                     <img className='cursorScopri' src={cosenzaBackground_img} />
                     <p className='parallaxText'>Cosenza</p>
                 </div>

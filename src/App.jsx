@@ -9,15 +9,20 @@ import PageNotFound from 'Pages/PageNotFound';
 import Header from 'Components/Header';
 import CustomCursor from 'Components/CustomCursor';
 
+import { useState, useRef } from 'react';
+
 export default function App() {
+    const [customCursorFunctions, setCustomCursorFunctions] = useState({});
+
     return (
         <>
             <LenisScroll />
             <Header />
+            <CustomCursor setCustomCursorFunctions={setCustomCursorFunctions} />
             <BrowserRouter>
-                <CustomCursor page/>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    {/*https://legacy.reactjs.org/docs/context.html*/}
+                    <Route path="/" element={<Home customCursorFunctions={customCursorFunctions} />} />
                     <Route path="/Comunica" element={<Comunica />} />
                     <Route path="/Amplifica" element={<Amplifica />} />
                     <Route path="/Diventa" element={<Diventa />} />

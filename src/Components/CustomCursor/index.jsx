@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import './CustomCursor.css'
 
 import cursorDefault from 'images/Cursor/mouse-Default.svg';
 import cursorBack from 'images/Cursor/mouse-Back.svg';
@@ -7,61 +9,40 @@ import cursorPrev from 'images/Cursor/mouse-Prev.svg';
 import cursorScopri from 'images/Cursor/mouse-Scopri.svg';
 
 
-export default function CustomCursor( ) {
+
+export default function CustomCursor({ setCustomCursorFunctions }) {
+    var customCursor = useRef(null);
     
     useEffect( () => {
-        var customCursor = document.getElementById('customCursor');
-        customCursor.style.position = "fixed";
-        customCursor.style.width = "32px";
-        customCursor.style.height = "32px";
-        customCursor.style.pointerEvents = "none";
-        customCursor.style.zIndex = "999";
-        customCursor.style.transition = 'transform 0.3s';
-        customCursor.src = cursorDefault;
-        customCursor.style.display = "none";
+        
+        if (customCursor) {
+            setCustomCursorFunctions({cursorHovering, cursorNotHovering});
 
-        var adjustCursorPosition = function(event) {
-            let cursorWidth = 10; // Larghezza dell'area di rilevamento dei bordi in pixel
-            let screenWidth = window.innerWidth;
-            let screenHeight = window.innerHeight;
-            let mouseX = event.clientX;
-            let mouseY = event.clientY;
-
-            if (mouseX < 0 || mouseY < 0 || mouseX > screenWidth || mouseY > screenHeight)
-                document.body.style.cursor = cursorDefault;
-
-            customCursor.style.left = (event.clientX - customCursor.width / 2) + 'px';
-            customCursor.style.top = (event.clientY - customCursor.height / 2) + 'px';
-            customCursor.style.display = 'block';
-        };
-
-        window.addEventListener ('mousemove', adjustCursorPosition);
-        window.addEventListener('wheel', adjustCursorPosition);
-
-        //set cursor to svgSrc with animation
-        function cursorHovering(svgSrc, animation_boolean = true) {
-            customCursor.src = svgSrc;
-            if (animation_boolean)
-                customCursor.style.transform = 'scale(3)';
-        };
-
-        function cursorNotHovering(animation_boolean = true) {
+            console.log('cambiato');
+            customCursor = customCursor.current;
             customCursor.src = cursorDefault;
-            if (animation_boolean)
-                customCursor.style.transform = 'scale(1)';
-        };
 
+            var adjustCursorPosition = function(event) {
+                let cursorWidth = 10; // Larghezza dell'area di rilevamento dei bordi in pixel
+                let screenWidth = window.innerWidth;
+                let screenHeight = window.innerHeight;
+                let mouseX = event.clientX;
+                let mouseY = event.clientY;
 
-        /* 
-        document.getElementById('horizontalSection').addEventListener('mouseenter', () => {
-            cursorHovering(cursorScopri, '', true);
-        });
+                if (mouseX < 0 || mouseY < 0 || mouseX > screenWidth || mouseY > screenHeight)
+                    document.body.style.cursor = cursorDefault;
 
-        document.getElementById('horizontalSection').addEventListener('mouseleave', () => {
-            cursorNotHovering(true);
-        }) */
+                customCursor.style.left = (event.clientX - customCursor.width / 2) + 'px';
+                customCursor.style.top = (event.clientY - customCursor.height / 2) + 'px';
+                customCursor.style.display = 'block';
+            };
 
-        document.querySelectorAll('.cursorScopri').forEach( (element) => {
+            window.addEventListener ('mousemove', adjustCursorPosition);
+            window.addEventListener('wheel', adjustCursorPosition);
+
+        }
+
+        /* document.querySelectorAll('.cursorScopri').forEach( (element) => {
             element.addEventListener('mouseenter', () => {
                 cursorHovering(cursorScopri, true);
             });
@@ -77,17 +58,32 @@ export default function CustomCursor( ) {
             element.addEventListener('mouseleave', () => {
                 cursorNotHovering(true);
             })
-        });
-    });
+        }); */
+    }, [customCursor]);
+    
+        //set cursor to svgSrc with animation
+        function cursorHovering(svgSrc, animation_boolean = true) {
+            if (svgSrc === 'ciao')
+                customCursor.src = cursorScopri;
+            if (animation_boolean)
+                customCursor.style.transform = 'scale(3)';
+        };
+
+        function cursorNotHovering(animation_boolean = true) {
+            customCursor.src = cursorDefault;
+            if (animation_boolean)
+                customCursor.style.transform = 'scale(1)';
+        };
+
+
+
+        
         
 
     return (
         <>
-            <img id='customCursor'/>
+            <img id='customCursor' ref={customCursor}/>
         </>
     );
-}
-
-export function prova() {
-    console.log('ciao');
+    
 }

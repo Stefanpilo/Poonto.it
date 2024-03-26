@@ -16,6 +16,7 @@ export default function Comunica() {
 
     const { state } = useLocation();
 
+
     return (
         <>
             <div id='Comunica-container' className='boxed'>

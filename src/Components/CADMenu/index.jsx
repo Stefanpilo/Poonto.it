@@ -14,9 +14,9 @@ export default function CADMenu ({ animation, cannotClick}) {
 
     return (
         <div id='CADMenu' className={animationFinished ? animation + 'ed' : animation} onAnimationEnd={ () => setAnimationFinished(true)}>
-            <Link to='/Comunica' className={cannotClick === 'comunica' ? 'disabled' : ''} state={pathname}>Comunica.</Link><br/>
-            <Link to='/Amplifica' className={cannotClick === 'amplifica' ? 'disabled' : ''} state={pathname}>Amplifica.</Link><br/>
-            <Link to='/Diventa' className={cannotClick === 'diventa' ? 'disabled' : ''} state={pathname}>Diventa.</Link><br/>
+            <Link to='/Comunica' className={cannotClick === 'comunica' ? 'disabled' : ''} state={pathname}>Comunica.</Link>
+            <Link to='/Amplifica' className={cannotClick === 'amplifica' ? 'disabled' : ''} state={pathname}>Amplifica.</Link>
+            <Link to='/Diventa' className={cannotClick === 'diventa' ? 'disabled' : ''} state={pathname}>Diventa.</Link>
         </div>
     );
 }
