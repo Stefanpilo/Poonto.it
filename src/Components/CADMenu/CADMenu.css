@@ -12,6 +12,7 @@
         transform-origin: left;
         margin-top: 25px;
         transition: transform 0.5s;
+        z-index: 900;
     }
     
     #CADMenu.shrink {

@@ -3,7 +3,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './HorizontalCaseHistorySection.css'
 
+import cosenzaBackground_img from 'images/Cosenza background img.jpg';
+import edenBackground_img from 'images/Eden background img.jpg';
+import titoffBacground_img from 'images/Titoff case history background img.jpg';
+
 export default function HorizontalCaseHistorySection() {
+
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect( () => {
@@ -18,8 +23,22 @@ export default function HorizontalCaseHistorySection() {
             }),
             trigger: horizontalSection,
             start: 'center center',
+            end: () => '+=' + (horizontalSection.scrollWidth * 0.5),
             pin: horizontalSectionPin,
-            scrub: -1,
+            scrub: 1,
+            invalidateOnRefresh: true
+        });
+
+        ScrollTrigger.create({
+            animation: gsap.to('.parallaxText', {
+                ease: 'none',
+                xPercent: -50
+            }),
+            trigger: horizontalSection,
+            start: 'center center',
+            end: () => '+=' + (horizontalSection.scrollWidth * 0.5),
+            pin: false,
+            scrub: 1,
             invalidateOnRefresh: true
         });
     });
@@ -27,9 +46,30 @@ export default function HorizontalCaseHistorySection() {
     return (
         <div id='horizontalSectionWrapper'>
             <div id='horizontalSection'>
-                <div className='HPCaseHistory_column'></div>
-                <div className='HPCaseHistory_column'></div>
-                <div className='HPCaseHistory_column'></div>
+            <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={cosenzaBackground_img} />
+                    <p className='parallaxText'>Cosenza</p>
+                </div>
+                <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={edenBackground_img} />
+                    <p className='parallaxText'>Eden</p>
+                </div>
+                <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={titoffBacground_img} />
+                    <p className='parallaxText'>Titoff</p>
+                </div>
+                <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={cosenzaBackground_img} />
+                    <p className='parallaxText'>Cosenza</p>
+                </div>
+                <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={edenBackground_img} />
+                    <p className='parallaxText'>Eden</p>
+                </div>
+                <div className='HPCaseHistory_column'>
+                    <img className='cursorScopri' src={titoffBacground_img} />
+                    <p className='parallaxText'>Titoff</p>
+                </div>
             </div>
         </div>
     );

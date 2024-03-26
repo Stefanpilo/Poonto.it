@@ -7,21 +7,23 @@ import HorizontalCaseHistorySection from 'Components/HorizontalCaseHistorySectio
 export default function Home() {
 
   return (
-    <div className="boxed">
-      <div id='horizontalSectionPin'>
-        <CADMenu animation={'none'} />
-        <HorizontalCaseHistorySection />
-        <div id='greyBackground_section'></div>
+    <>
+      <div className="boxed">
+        <div id='horizontalSectionPin'>
+          <CADMenu animation={'none'} />
+          <HorizontalCaseHistorySection />
+          <div id='greyBackground_section'></div>
+        </div>
+        <div id='black_section'>
+          <span className='h2'>Guarda quanta roba c’è in un Poonto</span>
+          <HorizontalTextScroll animationDuration='90s' marginTop='50px' />
+          <HorizontalTextScroll animationDuration='70s' />
+        </div>
+        <h1>Questa è la home</h1>
+        <Link to="/Contatti">Contatti</Link>
+        <div style={{height: "200vh"}}></div>
       </div>
-      <div id='black_section'>
-        <span className='h2'>Guarda quanta roba c’è in un Poonto</span>
-        <HorizontalTextScroll animationDuration='90s' marginTop='50px' />
-        <HorizontalTextScroll animationDuration='70s' />
-      </div>
-      <h1>Questa è la home</h1>
-      <Link to="/Contatti">Contatti</Link>
-      <div style={{height: "200vh"}}></div>
-    </div>
+    </>
     );
 }
 

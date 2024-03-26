@@ -1,0 +1,93 @@
+<!-- <script>
+/* 	gsap.registerPlugin(ScrollTrigger);
+
+	//cursor types
+	var cursorDefault = '/wp-content/uploads/2023/07/mouse-Default.svg';
+	var cursorBack = '/wp-content/uploads/2023/06/mouse-Back.svg';
+	var cursorScopri = '/wp-content/uploads/2023/06/mouse-Scopri.svg';
+	var cursorNext = '/wp-content/uploads/2023/06/mouse-Next.svg';
+	var cursorPrev = '/wp-content/uploads/2023/06/mouse-Prev.svg'; */
+
+	//cursor functions
+/* 	//restore default cursor
+	var cursorBackToDefault = function() {
+		console.log("default");
+		document.body.style.cursor = "url('" + cursorDefault + "') 16 16, auto";
+	}
+ */
+	//changeCursor
+/* 	var customCursor = document.createElement("img");
+	customCursor.setAttribute('id', "customCursor");
+	customCursor.style.position = "fixed";
+	customCursor.style.pointerEvents = "none";
+	customCursor.style.width = "32px";
+	customCursor.style.height = "32px";
+	customCursor.style.zIndex = "999";
+	customCursor.style.display = "none"; */
+
+
+	//set cursor to svgSrc with animation
+	var cursorHovering = function(svgSrc, hoverType, animation_boolean = true) {
+		if (hoverType === "toBack") {
+			if ( !(event.target.classList.contains("goBack") || event.target.parentNode.classList.contains("goBack")) )
+				return;
+		}
+		document.body.style.cursor = "none";
+		customCursor.src = svgSrc;
+		customCursor.style.display = "block";
+		if (!animation_boolean) {
+			customCursor.style.animation = "none";
+			customCursor.style.width = "444px";
+			customCursor.style.height = "250px";
+		}
+		else
+			customCursor.style.animation = "enlargeCustomCursor 0.3s forwards";
+	};
+
+	//set cursor to default with animation
+	var cursorNotHovering = function(animation_boolean = true) {
+		customCursor.src = cursorDefault;
+		if (!animation_boolean) {
+			customCursor.style.width = "32px";
+			customCursor.style.height = "32px";
+			customCursor.style.display = "none";
+		}
+		else
+			customCursor.style.animation = "reverseEnlargeCustomCursor 0.3s forwards";
+
+		let hoverAnimationEnd = function() {
+			if(event.animationName === 'enlargeCustomCursor')
+				return;
+			customCursor.style.animation = '';
+			customCursor.style.display = 'none';
+			cursorBackToDefault();
+			window.dispatchEvent(new Event('mousemove'));
+		};
+		customCursor.addEventListener('animationend', hoverAnimationEnd, {once: true});
+	};
+	
+	//custom cursor follows mouse pointer position
+ /*  var adjustCursorPosition = function() {
+  	let cursorWidth = 10; // Larghezza dell'area di rilevamento dei bordi in pixel
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+    let mouseX = event.clientX;
+    let mouseY = event.clientY;
+    
+    if (mouseX < 0 || mouseY < 0 || mouseX > screenWidth || mouseY > screenHeight)
+    	document.body.style.cursor = cursorDefault;
+    
+    customCursor.style.left = (event.clientX - customCursor.width / 2) + 'px';
+    customCursor.style.top = (event.clientY - customCursor.height / 2) + 'px';
+	};
+	
+	function loadGeneralScript() {
+		document.body.appendChild(customCursor);
+		cursorBackToDefault();
+		
+		window.addEventListener ('mousemove', adjustCursorPosition);
+    window.addEventListener('wheel', adjustCursorPosition);
+	}
+	document.addEventListener('DOMContentLoaded', loadGeneralScript); */
+	
+</script> -->

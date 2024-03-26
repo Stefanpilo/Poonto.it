@@ -6,13 +6,34 @@
 #horizontalSection {
     display: flex;
     margin-top: 50px;
+    gap: 20px;
     animation-timing-function: ease-in-out;
 }
 
 .HPCaseHistory_column {
     min-width: 682px;
+    width: 682px;
     min-height: 375px;
-    background-color: red;
-    padding: 2%;
-    border: 3px solid black;
+    height: 375px;
+}
+
+.HPCaseHistory_column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.HPCaseHistory_column .parallaxText {
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 40px 200px;
+    font-family: 'Averta';
+    font-size: 80px;
+    line-height: 84px;
+    color: white;
+}
+
+.HPCaseHistory_column:first-child .parallaxText {
+    margin-left: 100px;
 }

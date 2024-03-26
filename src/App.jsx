@@ -7,6 +7,7 @@ import Diventa from 'Pages/Diventa';
 import PageNotFound from 'Pages/PageNotFound';
 
 import Header from 'Components/Header';
+import CustomCursor from 'Components/CustomCursor';
 
 export default function App() {
     return (
@@ -14,6 +15,7 @@ export default function App() {
             <LenisScroll />
             <Header />
             <BrowserRouter>
+                <CustomCursor page/>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/Comunica" element={<Comunica />} />
